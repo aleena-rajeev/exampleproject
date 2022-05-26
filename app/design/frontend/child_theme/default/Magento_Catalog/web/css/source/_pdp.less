@@ -1,0 +1,132 @@
+/**
+ *
+ * Styling file - Product detail page
+ *
+ */
+ & when (@media-common =true) {
+
+    .catalog-product-view{
+        .page-main{
+            max-width: 1600px;
+            padding: 0 70px;
+            .column.main{
+                width: 100%;
+                .product-info-main{
+                    width: 25%;
+                    &.sticky{
+                        position: sticky;
+                        top: 0;
+                    }
+                    .page-title-wrapper {
+                        padding-top: 60px;
+                        .page-title{
+                            color:@text-color-dark;
+                            font-size: 48px;
+                        }
+                    }
+                    .product-info-price{
+                        .product.attribute.overview,.price{
+                            font-size: 14px;
+                            color:@text-color-dark;
+                        }
+                        .product.attribute.overview{
+                            margin: 0;
+                        }
+                        .price{
+                            font-weight: 600;
+                        }
+                        .price-label{
+                            display: none;
+                        }
+                        .price-final_price{
+                            padding-bottom: 0;
+                        }
+                    }
+                    .product-add-form{
+                        padding-top: 0;
+                        .actions{
+                            .action.primary.tocart{
+                                background: @text-color-dark;
+                                border: 1px solid @text-color-dark;
+                                border-radius: 100px;
+                                width: 100%;
+                               
+                                span{
+                                    font-weight: normal;
+                                    font-size: 14px;
+                                    line-height: 18px;
+                                    text-transform: uppercase;
+                                    position: relative;
+                                    &:after{
+                                        content: '';
+                                        background:url("../images/Right.svg");
+                                        background-repeat: no-repeat;
+                                        width: 20px;
+                                        height: 13px;
+                                        position: absolute;
+                                        top: 3px;
+                                        left: 105px;
+    
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .product.media {
+                    width: 75%;
+                    display: flex;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    position: relative;
+                    .gallery-slider{
+                        width: 65%;
+                        .gallery-slider-wrapper{
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            img:nth-child(2), img:nth-child(3){
+                                width: 50%;
+                            }
+                        }
+                    }
+                    .product.attribute.description{
+                        width: 30%;
+                        .value.sticky{
+                            position: sticky;
+                            top: 0;
+                        }
+                        .tabs-navigation{
+                            .tab-header{
+                                border: none;
+                                background: transparent;
+                                .tab-title{
+                                    padding: 1.4rem 2rem 0 0;
+                                }
+                            }
+                        }
+                        .tabs-content{
+                            border: none;
+                        }
+                    }
+                    .action.towishlist{
+                        position: absolute;
+                        right: 50px;
+                        &::before{
+                            content: '';
+                            background:url("../images/heart.svg");
+                            background-repeat: no-repeat;
+                            width: 20px;
+                            height: 22px;
+                            display: block;
+                        }
+                        span{
+                            display:none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

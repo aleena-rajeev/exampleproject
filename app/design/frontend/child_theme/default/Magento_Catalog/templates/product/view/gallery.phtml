@@ -1,0 +1,66 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ */
+
+$product = $this->getProduct();
+$images = json_decode($block->getGalleryImagesJson(),true);
+?>
+
+<div id="gallery-slider" class="gallery-slider" data-mage-init='{"gallery":{}}'>
+    <div class="viewport desktop slick-img-slider gallery-slider-wrapper" style="">
+        <?php foreach ($images as $i => $image): ?>
+            <?php if(isset($image['videoUrl'])) :?>
+                <?php $altText = $image['caption'] ? $image['caption'] : $product->getName();
+                $vimeo = $image['videoUrl'];
+                $vid = (int) substr(parse_url($vimeo, PHP_URL_PATH), 1);;
+                ?>
+                <iframe src="https://player.vimeo.com/video/<?php echo $vid ?>"
+                        frameborder="0" title="<?php echo $altText ?>" webkitallowfullscreen mozallowfullscreen allowfullscreen style="width: 100%"></iframe>
+            <?php else: ?>
+                <?php $altText = $image['caption'] ? $image['caption'] : $product->getName(); ?>
+                <img src="<?php echo $image['img']?>" alt="<?php echo $altText ?>">
+            <?php endif; ?>
+
+        <?php endforeach ?>
+    </div>
+</div>
+
+<script>
+    (function  () {
+        require( ['jquery'], function ($) {
+
+            $(document).ready(function(){ 
+                var $sidebar = $('.product-info-main, .product.attribute.description .value');
+                var sidebarTop = $sidebar.position().top;
+                var contentHeight = $('.product.media').outerHeight();
+
+                $(window).scroll(fixSidebarOnScroll);
+
+                    function fixSidebarOnScroll() {
+                    var windowScrollTop = $(window).scrollTop();
+
+                    if (windowScrollTop >= contentHeight || windowScrollTop <= sidebarTop) {
+                        $sidebar.removeClass('sticky');
+                    }
+                    else if (windowScrollTop >= sidebarTop) {
+                        if (!$sidebar.hasClass('sticky')) {
+                            $sidebar.addClass('sticky');
+                        }
+                    }
+                }
+                
+            });
+
+        });
+    })();
+</script>

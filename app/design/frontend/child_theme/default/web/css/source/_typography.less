@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #FONTS
+\*------------------------------------*/
+.font-face(@font-family, @file-path) {
+    @font-face {
+        font-family: @font-family;
+        src: url('@{file-path}.eot');
+        src: url('@{file-path}.eot?#iefix') format('embedded-opentype'),
+        url('@{file-path}.woff') format('woff'),
+        url('@{file-path}.woff2') format('woff2'),
+        url('@{file-path}.ttf') format('truetype'),
+        url('@{file-path}.otf') format('OpenType'),
+        url('@{file-path}.svg#@{file-path}') format('svg');
+        font-weight: 400;
+        font-style: normal; 
+        font-display: fallback;
+    }
+}
+
+
+// USE
+ 
+ 
+ 
+.font-face(Roboto-Regular, '../fonts/Roboto/Roboto-Regular'); 

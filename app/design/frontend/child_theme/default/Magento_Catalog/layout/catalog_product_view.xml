@@ -1,0 +1,11 @@
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="product.info.description" destination="product.info.media"/>
+        <move element="view.addto.wishlist" destination="product.info.media"/> 
+        <move element="product.info.overview" destination="product.info.price" before="product.price.final"/>
+
+        <referenceBlock name="view.addto.compare" remove="true" /> 
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+    </body>
+</page>
